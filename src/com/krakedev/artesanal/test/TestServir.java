@@ -6,7 +6,7 @@ public class TestServir {
 
 	public static void main(String[] args) {
 		
-		Maquina rubia = new Maquina("Pilsener", "Cerveza rubia", 0.02, 8000);
+		Maquina rubia = new Maquina("Pilsener", "Cerveza rubia", 0.02, 8000, "0066");
 	
 		System.out.println("-------------ESTADO INICIAL-------------");
 		rubia.imprimir();
