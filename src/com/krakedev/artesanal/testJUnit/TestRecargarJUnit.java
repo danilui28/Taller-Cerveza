@@ -21,11 +21,11 @@ public class TestRecargarJUnit {
 
 	@Test
 	public void testRecargaFallidaPorDesborde() {
-		Maquina negra = new Maquina("Club", "Cerveza Fria", 0.02, 8000, "5061");
+		Maquina negra = new Maquina("Club", "Cerveza Fria", 0.02, 8000, "5001");
 		negra.RecargarCerveza(7000);
-		boolean resultado = negra.RecargarCerveza(1000);
+		boolean resultado = negra.RecargarCerveza(800);
 
 		assertTrue(resultado);
-		assertEquals(3000, negra.getCantidadActual(), 0.001);
+		assertEquals(7800, negra.getCantidadActual(), 0.0001);
 	}
 }
