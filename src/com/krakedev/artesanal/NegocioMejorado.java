@@ -74,4 +74,46 @@ public class NegocioMejorado {
 
 	    clientes.add(cliente);
 	}
+	
+	public Cliente buscarClientePorCedula(String cedula) {
+		for (int i = 0; i < clientes.size(); i++) {
+			Cliente cliente = clientes.get(i);
+	          if (cliente.getCedula().equals(cedula)) {
+	              return cliente;
+	          }
+			}
+	    return null;
+	}
+	
+	public Cliente buscarClientePorCodigo(int codigo) {
+		for (int i = 0; i < clientes.size(); i++) {
+			Cliente cliente = clientes.get(i);
+	          if (cliente.getCodigo() == codigo) {
+	              return cliente;
+	          }
+			}
+	    return null;
+	}
+	
+	public double consumirCerveza(int codigoCliente, String codigoMaquina, double Cantidad) {
+		Maquina maquina = recuperarMaquina(codigoMaquina);
+		Cliente cliente = buscarClientePorCodigo(codigoCliente);
+		double cantidadServida = maquina.servirCerveza(Cantidad);
+		registrarConsumo(cliente, cantidadServida);
+		return cantidadServida;
+	}
+	
+	public void registrarConsumo(Cliente cliente, double valorConsumido) {
+	    cliente.setTotalConsumido(cliente.getTotalConsumido() + valorConsumido);
+	}
+	
+	public double consultarValorVendido() {
+		double totalConsumo = 0;
+	    for (int i = 0; i < clientes.size(); i++) {
+	        Cliente cliente = clientes.get(i);
+
+	        totalConsumo = totalConsumo + cliente.getTotalConsumido();
+	    }
+	    return totalConsumo;
+	}
 }
