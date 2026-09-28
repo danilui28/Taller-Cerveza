@@ -2,6 +2,8 @@ package com.krakedev.artesanal.test;
 
 import com.krakedev.artesanal.Maquina;
 
+import com.krakedev.artesanal.NegocioMejorado;
+
 public class TestServir {
 
 	public static void main(String[] args) {
